@@ -5,10 +5,6 @@ export interface IVerified {
   iat: number;
 }
 
-export interface ITokenData {
-  username: string;
-}
-
 export const verify = (token: string | undefined, secret: string): IVerified | undefined => {
   if (token === undefined) return undefined;
 
@@ -20,7 +16,7 @@ export const verify = (token: string | undefined, secret: string): IVerified | u
   }
 };
 
-export const sign = (user: ITokenData, secret: string): string => {
-  const token: string = jwt.sign({ username: user.username }, secret);
+export const sign = (user: string | object | Buffer, secret: string): string => {
+  const token: string = jwt.sign(user, secret);
   return token;
 };
