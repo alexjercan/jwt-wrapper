@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export interface IVerified {
-  username: string;
+  user: string | object | Buffer;
   iat: number;
 }
 
