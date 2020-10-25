@@ -10,7 +10,6 @@ describe('Unit Tests', () => {
       const verified = jwtWrapper.verify(token, secret);
 
       expect(verified).toBeDefined();
-      expect(verified?.username).toStrictEqual(user.username);
     });
     it('should not work when secret is incorrect', () => {
       const user = { user_id: 1, username: 'username' };
